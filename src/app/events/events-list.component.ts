@@ -2,8 +2,15 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "events-list",
-  template:
-    "<event-thumbnail [event]='event' (eventEmitter)='handle($event)'></event-thumbnail>"
+  template: `
+    <event-thumbnail
+      #thumbnail
+      [event]="event"
+      (eventEmitter)="handle($event)"
+    ></event-thumbnail>
+    <h3>{{ thumbnail.someProperty }}</h3>
+    <button (click)="thumbnail.template('this')">Template</button>
+  `
 })
 export class EventsListComponent {
   event = {

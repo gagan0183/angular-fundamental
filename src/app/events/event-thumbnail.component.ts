@@ -24,8 +24,13 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 export class EventThumbnail {
   @Input() event;
   @Output() eventEmitter = new EventEmitter();
+  someProperty: string = "property";
 
   handle() {
     this.eventEmitter.emit(this.event.name);
+  }
+
+  template(p) {
+    console.log(p);
   }
 }
