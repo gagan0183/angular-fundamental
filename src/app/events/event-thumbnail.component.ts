@@ -23,6 +23,10 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   `,
   styles: [
     `
+      .thumbnail {
+        background-color: #1e3259;
+        color: #fff'
+      }
       .pad-left {
         padding-left: 10px;
       }
