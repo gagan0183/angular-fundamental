@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "events-list",
-  template: "<event-thumbnail [event]='event'></event-thumbnail>"
+  template:
+    "<event-thumbnail [event]='event' (eventEmitter)='handle($event)'></event-thumbnail>"
 })
 export class EventsListComponent {
   event = {
@@ -18,4 +19,8 @@ export class EventsListComponent {
       country: "England"
     }
   };
+
+  handle(data) {
+    console.log(data);
+  }
 }
