@@ -2,10 +2,10 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "events-list",
-  templateUrl: "./events-list.component.html"
+  template: "<event-thumbnail [event]='event'></event-thumbnail>"
 })
 export class EventsListComponent {
-  events = {
+  event = {
     id: 1,
     name: "Angular connect",
     date: "9/26/2039",
