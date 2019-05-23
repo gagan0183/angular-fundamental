@@ -37,8 +37,4 @@ export class EventThumbnail {
   handle() {
     this.eventEmitter.emit(this.event.name);
   }
-
-  template(p) {
-    console.log(p);
-  }
 }
