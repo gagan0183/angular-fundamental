@@ -4,8 +4,6 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   selector: "event-thumbnail",
   template: `
     <div>
-      <h1>Angular events</h1>
-      <hr />
       <div class="well hoverwell thumbnail">
         <h2>{{ event.name }}</h2>
         <div>Date: {{ event.date }}</div>
@@ -17,7 +15,6 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
             >{{ event.location.city }}, {{ event.location.country }}</span
           >
         </div>
-        <button class="btn btn-primary" (click)="handle()">Handle</button>
       </div>
     </div>
   `,
@@ -25,7 +22,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
     `
       .thumbnail {
         background-color: #1e3259;
-        color: #fff'
+        color: #fff';
       }
       .pad-left {
         padding-left: 10px;
@@ -35,10 +32,5 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 })
 export class EventThumbnail {
   @Input() event;
-  @Output() eventEmitter = new EventEmitter();
   someProperty: string = "property";
-
-  handle() {
-    this.eventEmitter.emit(this.event.name);
-  }
 }
