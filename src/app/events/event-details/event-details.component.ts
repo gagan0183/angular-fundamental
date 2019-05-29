@@ -2,8 +2,7 @@ import { Component } from "@angular/core";
 import { EventService } from "../shared/event.service";
 
 @Component({
-  selector: "event-details",
-  template: "event-details.component.html",
+  templateUrl: "./event-details.component.html",
   styles: [
     `
       .container {
