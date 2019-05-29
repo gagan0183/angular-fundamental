@@ -23,7 +23,19 @@ import { EventDetailRouteActivator } from "./events/event-details/event-detail.r
     Error404Component
   ],
   imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES)],
-  providers: [EventService, EventDetailRouteActivator],
+  providers: [
+    EventService,
+    EventDetailRouteActivator,
+    { provide: "pass", useValue: state }
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule {}
+
+export function state(component: CreateEventComponent) {
+  console.log("this");
+  if (component.isState) {
+    return window.confirm("Do you really want to cancel this");
+  }
+  return false;
+}

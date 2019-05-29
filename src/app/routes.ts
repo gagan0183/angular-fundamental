@@ -6,7 +6,11 @@ import { Error404Component } from "./errors/404.component";
 import { EventDetailRouteActivator } from "./events/event-details/event-detail.routeactivator";
 
 export const APP_ROUTES: Routes = [
-  { path: "event/new", component: CreateEventComponent },
+  {
+    path: "event/new",
+    component: CreateEventComponent,
+    canDeactivate: ["pass"]
+  },
   { path: "events", component: EventsListComponent },
   {
     path: "event/:id",
