@@ -11,6 +11,7 @@ import { EventDetailsComponent } from "./events/event-details/event-details.comp
 import { CreateEventComponent } from "./events/create-event.component";
 import { Error404Component } from "./errors/404.component";
 import { EventDetailRouteActivator } from "./events/event-details/event-detail.routeactivator";
+import { EventListResolver } from "./events/event-list-resolver.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EventDetailRouteActivator } from "./events/event-details/event-detail.r
   providers: [
     EventService,
     EventDetailRouteActivator,
-    { provide: "pass", useValue: state }
+    { provide: "pass", useValue: state },
+    EventListResolver
   ],
   bootstrap: [EventsAppComponent]
 })
