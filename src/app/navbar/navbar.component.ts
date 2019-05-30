@@ -11,6 +11,9 @@ import { Component } from "@angular/core";
       .navbar a {
         color: #fff;
       }
+      li > a.active {
+        color: #a71299;
+      }
     `
   ]
 })
