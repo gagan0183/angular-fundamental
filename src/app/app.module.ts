@@ -11,6 +11,7 @@ import {
   EventListResolver
 } from "./events/index";
 import { NavbarComponent } from "./navbar/navbar.component";
+import { AuthService } from "./user/auth.service";
 import { RouterModule } from "@angular/router";
 import { APP_ROUTES } from "./routes";
 import { Error404Component } from "./errors/404.component";
@@ -29,6 +30,7 @@ import { Error404Component } from "./errors/404.component";
   providers: [
     EventService,
     EventDetailRouteActivator,
+    AuthService,
     { provide: "pass", useValue: state },
     EventListResolver
   ],
