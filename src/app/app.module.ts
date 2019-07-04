@@ -15,6 +15,7 @@ import { AuthService } from "./user/auth.service";
 import { RouterModule } from "@angular/router";
 import { APP_ROUTES } from "./routes";
 import { Error404Component } from "./errors/404.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { Error404Component } from "./errors/404.component";
     CreateEventComponent,
     Error404Component
   ],
-  imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(APP_ROUTES)
+  ],
   providers: [
     EventService,
     EventDetailRouteActivator,
