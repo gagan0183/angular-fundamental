@@ -20,7 +20,8 @@ export class CreateSessionComponent implements OnInit {
     this.level = new FormControl("", Validators.required);
     this.abstract = new FormControl("", [
       Validators.required,
-      Validators.maxLength(400)
+      Validators.maxLength(400),
+      this.restrictedWords(["foo", "bar"])
     ]);
 
     this.newSessionForm = new FormGroup({
@@ -30,6 +31,18 @@ export class CreateSessionComponent implements OnInit {
       level: this.level,
       abstract: this.abstract
     });
+  }
+
+  private restrictedWords(words) {
+    return (formControl: FormControl): { [key: string]: any } => {
+      if (!words) return null;
+      var invalidWords = words
+        .map(w => (formControl.value.includes(w) ? w : null))
+        .filter(w => w != null);
+      return formControl.value.includes("foo")
+        ? { restrictedWords: invalidWords.join(",") }
+        : null;
+    };
   }
 
   saveSession(formValues) {
