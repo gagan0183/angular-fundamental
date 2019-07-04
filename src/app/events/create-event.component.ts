@@ -17,6 +17,6 @@ export class CreateEventComponent {
   saveEvent(formValues) {
     this.eventService.saveEvent(formValues);
     this.isState = false;
-    // this.router.navigate(["/events"]);
+    this.router.navigate(["/events"]);
   }
 }
