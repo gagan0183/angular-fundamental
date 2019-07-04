@@ -9,6 +9,10 @@
   >
     <div class="form-group">
       <label for="userName">User Name:</label>
+      <em
+        *ngIf="loginForm.controls.userName.invalid && (loginForm.controls.userName.touched)"
+        >Required</em
+      >
       <input
         (ngModel)="userName"
         name="userName"
@@ -21,6 +25,10 @@
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
+      <em
+        *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.touched)"
+        >Required</em
+      >
       <input
         (ngModel)="password"
         name="password"
