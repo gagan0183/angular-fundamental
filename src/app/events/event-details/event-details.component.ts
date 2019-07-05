@@ -43,4 +43,8 @@ export class EventDetailsComponent {
     this.eventService.updateEvent(this.event);
     this.addMode = false;
   }
+
+  cancel() {
+    this.addMode = false;
+  }
 }
