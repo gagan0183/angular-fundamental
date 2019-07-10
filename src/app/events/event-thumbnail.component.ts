@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
   template: `
     <div>
       <div class="well hoverwell thumbnail" [routerLink]="['/event', event.id]">
-        <h2>{{ event?.name }}</h2>
+        <h2>{{ event?.name | uppercase }}</h2>
         <div>Date: {{ event?.date }}</div>
         <div
           [ngClass]="{ green: event?.time === '8:00 am' }"
