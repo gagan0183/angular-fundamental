@@ -29,6 +29,20 @@
     </div>
     <div class="col-md-7">
       <button
+        class="btn-default"
+        [class.active]="sortBy==='name'"
+        (click)="sortBy='name'"
+      >
+        By Name
+      </button>
+      <button
+        class="btn-default"
+        [class.active]="sortBy==='votes'"
+        (click)="sortBy='votes'"
+      >
+        By Votes
+      </button>
+      <button
         class="btn btn-default"
         [class.active]="filterBy==='all'"
         (click)="filterBy='all'"
@@ -67,6 +81,7 @@
     [filterBy]="filterBy"
     [sessions]="event?.sessions"
     *ngIf="!addMode"
+    [sortBy]="sortBy"
   ></session-list>
   <create-session
     *ngIf="addMode"
