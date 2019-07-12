@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject, Observable } from "rxjs";
-import { IEvent } from "./event.model";
+import { IEvent, ISession } from "./event.model";
 
 @Injectable()
 export class EventService {
@@ -25,6 +25,15 @@ export class EventService {
     if (index) {
       EVENTS[index] = event;
     }
+  }
+  searchSessions(searchTerm) {
+    let term = searchTerm.toLocaleLowerCase();
+    let results: ISession[] = [];
+    EVENTS.forEach(event => {
+      var matchingSessions = event.sessions.filter(session => {
+          session.name.toLocaleLowerCase().indexOf(term) > -1;
+      });
+    })
   }
 }
 
