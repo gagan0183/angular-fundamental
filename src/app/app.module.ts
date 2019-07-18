@@ -24,7 +24,7 @@ import { TOASTR_TOKEN, Toastr } from "./common/toastr.service";
 import { JQUERY_TOKEN } from "./common/jQuery.service";
 
 declare let toastr: Toastr = window["toastr"];
-declare let jQuery = window["$"];
+let jQuery = window["$"];
 
 @NgModule({
   declarations: [
