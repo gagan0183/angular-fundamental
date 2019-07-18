@@ -21,11 +21,14 @@ import { EventService } from '../events/shared/event.service';
 })
 export class NavbarComponent {
   searchTerm: string = "";
-  foundEvents: ISession[] = [];
+  foundSessions: ISession[] = [];
   constructor(private authService: AuthService, private eventService: EventService) {
   }
 
   searchSessions(searchTerm) {
-    this.eventService.searchSessions(searchTerm);
+    this.eventService.searchSessions(searchTerm).subscribe(sessions => {
+      this.foundSessions = sessions;
+      console.log(this.foundSessions);
+    });
   }
 }
