@@ -50,7 +50,11 @@
           </li>
         </ul>
       </div>
-      <form id="searchForm" (ngSubmit)="searchSessions(searchTerm)" class="navbar-form navbar-right">
+      <form
+        id="searchForm"
+        (ngSubmit)="searchSessions(searchTerm)"
+        class="navbar-form navbar-right"
+      >
         <div class="form-group">
           <input
             type="text"
@@ -67,3 +71,14 @@
     </div>
   </div>
 </div>
+
+<simple-modal title="Matching Sessions">
+  <div class="list-group">
+    <a
+      class="list-group-item"
+      *ngFor="let session of foundSessions"
+      [routerLink]="['/events', session.eventId]"
+      >{{session.name}}</a
+    >
+  </div>
+</simple-modal>

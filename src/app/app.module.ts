@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import { TOASTR_TOKEN, Toastr } from "./common/toastr.service";
 import { JQUERY_TOKEN } from "./common/jQuery.service";
+import { SimpleModalComponent } from "./common/simple-modal.component";
 
 declare let toastr: Toastr = window["toastr"];
 let jQuery = window["$"];
@@ -37,6 +38,7 @@ let jQuery = window["$"];
     CreateSessionComponent,
     Error404Component,
     SessionListComponent,
+    SimpleModalComponent,
     CollapsibleWellComponent,
     DurationPipe
   ],
