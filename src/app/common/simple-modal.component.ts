@@ -1,9 +1,10 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Inject, ViewChild, ElementRef } from "@angular/core";
+import { JQUERY_TOKEN } from "./jQuery.service";
 
 @Component({
   selector: "simple-modal",
   template: `
-    <div id="{{ elementId }}" class="modal fade" tabindex="-1">
+    <div id="{{ elementId }}" #modelcontainer class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -12,7 +13,7 @@ import { Component, Input } from "@angular/core";
             </button>
             <h4 class="modal-title">{{ title }}</h4>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" (click)="result()">
             <ng-content></ng-content>
           </div>
         </div>
@@ -31,4 +32,11 @@ import { Component, Input } from "@angular/core";
 export class SimpleModalComponent {
   @Input() title: string;
   @Input() elementId: string;
+  @ViewChild("modelcontainer") el: ElementRef;
+
+  constructor(@Inject(JQUERY_TOKEN) private $: any) {}
+
+  result() {
+    this.$(this.el.nativeElement).modal("hide");
+  }
 }
