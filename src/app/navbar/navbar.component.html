@@ -64,7 +64,7 @@
             name="searchTerm"
           />
         </div>
-        <button class="btn btn-default">
+        <button class="btn btn-default" modal-trigger>
           Search
         </button>
       </form>
@@ -77,7 +77,7 @@
     <a
       class="list-group-item"
       *ngFor="let session of foundSessions"
-      [routerLink]="['/events', session.eventId]"
+      [routerLink]="['/events', session.id]"
       >{{session.name}}</a
     >
   </div>

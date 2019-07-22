@@ -23,6 +23,7 @@ import { CollapsibleWellComponent } from "./common/collapsible-well.component";
 import { TOASTR_TOKEN, Toastr } from "./common/toastr.service";
 import { JQUERY_TOKEN } from "./common/jQuery.service";
 import { SimpleModalComponent } from "./common/simple-modal.component";
+import { ModalTriggerDirective } from "./common/modal-trigger.directive";
 
 declare let toastr: Toastr = window["toastr"];
 let jQuery = window["$"];
@@ -35,6 +36,7 @@ let jQuery = window["$"];
     EventDetailsComponent,
     NavbarComponent,
     CreateEventComponent,
+    ModalTriggerDirective,
     CreateSessionComponent,
     Error404Component,
     SessionListComponent,
