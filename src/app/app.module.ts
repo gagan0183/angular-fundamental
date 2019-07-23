@@ -1,6 +1,6 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { EventsAppComponent } from "./events-app.component";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { EventsAppComponent } from './events-app.component';
 import {
   EventsListComponent,
   EventThumbnail,
@@ -12,21 +12,23 @@ import {
   CreateSessionComponent,
   SessionListComponent,
   DurationPipe
-} from "./events/index";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { AuthService } from "./user/auth.service";
-import { RouterModule } from "@angular/router";
-import { APP_ROUTES } from "./routes";
-import { Error404Component } from "./errors/404.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CollapsibleWellComponent } from "./common/collapsible-well.component";
-import { TOASTR_TOKEN, Toastr } from "./common/toastr.service";
-import { JQUERY_TOKEN } from "./common/jQuery.service";
-import { SimpleModalComponent } from "./common/simple-modal.component";
-import { ModalTriggerDirective } from "./common/modal-trigger.directive";
+} from './events/index';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AuthService } from './user/auth.service';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './routes';
+import { Error404Component } from './errors/404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
+import { JQUERY_TOKEN } from './common/jQuery.service';
+import { SimpleModalComponent } from './common/simple-modal.component';
+import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { UpvoteComponent } from './events/event-details/upvote.component';
+import { VoterService } from './events/shared/voter.service';
 
-declare let toastr: Toastr = window["toastr"];
-let jQuery = window["$"];
+declare let toastr: Toastr = window['toastr'];
+let jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ let jQuery = window["$"];
     EventThumbnail,
     EventDetailsComponent,
     NavbarComponent,
+    UpvoteComponent,
     CreateEventComponent,
     ModalTriggerDirective,
     CreateSessionComponent,
@@ -56,7 +59,8 @@ let jQuery = window["$"];
     { provide: JQUERY_TOKEN, useValue: jQuery },
     EventDetailRouteActivator,
     AuthService,
-    { provide: "pass", useValue: state },
+    VoterService,
+    { provide: 'pass', useValue: state },
     EventListResolver
   ],
   bootstrap: [EventsAppComponent]
@@ -64,9 +68,9 @@ let jQuery = window["$"];
 export class AppModule {}
 
 export function state(component: CreateEventComponent) {
-  console.log("this");
+  console.log('this');
   if (component.isState) {
-    return window.confirm("Do you really want to cancel this");
+    return window.confirm('Do you really want to cancel this');
   }
   return false;
 }
