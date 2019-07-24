@@ -1,10 +1,10 @@
-import { Component } from "@angular/core";
-import { EventService } from "../shared/event.service";
-import { ActivatedRoute, Params } from "@angular/router";
-import { ISession } from "../shared";
+import { Component } from '@angular/core';
+import { EventService } from '../shared/event.service';
+import { ActivatedRoute, Params } from '@angular/router';
+import { ISession } from '../shared';
 
 @Component({
-  templateUrl: "./event-details.component.html",
+  templateUrl: './event-details.component.html',
   styles: [
     `
       .container {
@@ -23,8 +23,8 @@ import { ISession } from "../shared";
 export class EventDetailsComponent {
   event: any;
   addMode: boolean;
-  filterBy: string = "all";
-  sortBy: string = "votes";
+  filterBy: string = 'all';
+  sortBy: string = 'votes';
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute
@@ -32,7 +32,7 @@ export class EventDetailsComponent {
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      this.event = this.eventService.getEvent(+params["id"]);
+      this.event = this.route.snapshot.data['event'];
       this.addMode = false;
     });
   }

@@ -7,7 +7,6 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventDetailRouteActivator,
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
@@ -28,6 +27,7 @@ import { UpvoteComponent } from './events/event-details/upvote.component';
 import { VoterService } from './events/shared/voter.service';
 import { LocationValidate } from './events/shared/location-validator.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { EventResolver } from './events/event-resolver.service';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -61,11 +61,10 @@ let jQuery = window['$'];
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQUERY_TOKEN, useValue: jQuery },
-    EventDetailRouteActivator,
     AuthService,
     VoterService,
     { provide: 'pass', useValue: state },
-    EventListResolver
+    EventResolver
   ],
   bootstrap: [EventsAppComponent]
 })

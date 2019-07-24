@@ -19,8 +19,10 @@ export class EventService {
       return of(result as T);
     };
   }
-  getEvent(id) {
-    return EVENTS.find(event => event.id === id);
+  getEvent(id): Observable<IEvent> {
+    return this.http
+      .get<IEvent>(`/api/events/${id}`)
+      .pipe(catchError(this.handleError<IEvent>('getEvent')));
   }
   saveEvent(event) {
     event.id = 999;
