@@ -28,7 +28,7 @@ import { UpvoteComponent } from './events/event-details/upvote.component';
 import { VoterService } from './events/shared/voter.service';
 import { LocationValidate } from './events/shared/location-validator.directive';
 
-declare let toastr: Toastr = window['toastr'];
+let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
 
 @NgModule({
