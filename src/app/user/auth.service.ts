@@ -34,12 +34,19 @@ export class AuthService {
   updateCurrentUser(firstName, lastName) {
     this.currentUser.firstName = firstName;
     this.currentUser.lastName = lastName;
-    this.currentUser.userName = firstName + ' ' + lastName;
+    let options = {
+      headers: new HttpHeaders({ 'Content-type': 'application/json' })
+    };
+    return this.http.put(
+      `/api/users/${this.currentUser.id}`,
+      this.currentUser,
+      options
+    );
   }
 
   checkAuthenticationStatus() {
     this.http.get('/api/currentIdentity').subscribe(data => {
-      if(data instanceof Object) {
+      if (data instanceof Object) {
         this.currentUser = <IUser>data;
       }
     });
