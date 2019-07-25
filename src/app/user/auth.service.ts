@@ -51,4 +51,11 @@ export class AuthService {
       }
     });
   }
+
+  logout() {
+    let options = {
+      headers: new HttpHeaders({ 'Content-type': 'application/json' })
+    };
+    return this.http.post('/api/logout', {}, options);
+  }
 }
