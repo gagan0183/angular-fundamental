@@ -36,4 +36,12 @@ export class AuthService {
     this.currentUser.lastName = lastName;
     this.currentUser.userName = firstName + ' ' + lastName;
   }
+
+  checkAuthenticationStatus() {
+    this.http.get('/api/currentIdentity').subscribe(data => {
+      if(data instanceof Object) {
+        this.currentUser = <IUser>data;
+      }
+    });
+  }
 }

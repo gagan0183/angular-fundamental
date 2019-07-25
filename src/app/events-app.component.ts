@@ -1,9 +1,14 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
+import { AuthService } from './user/auth.service';
 
 @Component({
-  selector: "events-app",
-  templateUrl: "./events-app.component.html"
+  selector: 'events-app',
+  templateUrl: './events-app.component.html'
 })
 export class EventsAppComponent {
-  title = "CodeSandbox";
+  constructor(private auth: AuthService) {}
+
+  ngOnInit() {
+    this.auth.checkAuthenticationStatus();
+  }
 }
