@@ -78,6 +78,7 @@
 
   <hr />
   <session-list
+    [eventId]="event?.id"
     [filterBy]="filterBy"
     [sessions]="event?.sessions"
     *ngIf="!addMode"
