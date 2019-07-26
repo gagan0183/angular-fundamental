@@ -53,6 +53,7 @@ export class AuthService {
   }
 
   logout() {
+    this.currentUser = undefined;
     let options = {
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
     };
